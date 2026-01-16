@@ -1,0 +1,6 @@
+streamlit
+pandas
+mysqlclient
+plotly
+folium
+streamlit-folium
