@@ -1,6 +1,11 @@
 streamlit
 pandas
+numpy
 mysqlclient
+sqlalchemy
 plotly
+requests
+pyarrow
 folium
 streamlit-folium
+watchdog
