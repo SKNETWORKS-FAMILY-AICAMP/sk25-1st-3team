@@ -1,0 +1,207 @@
+:root{
+  --primary: #007A8C;
+  --active-red: #d63b3b;
+  --text: #111;
+  --soft: #f1f3f5;
+  --soft-hover: #e9ecef;
+  --ev-sky: #4dabf7; /* 하늘색 */
+}
+
+* { border: none !important; box-shadow: none !important; }
+hr{ display:none !important; }
+
+button:active, button:focus, button:focus-visible{
+    outline:none !important;
+    transform:none !important;
+    filter:none !important;
+}
+
+div[data-testid="stSelectbox"] > div,
+div[data-testid="stTextInput"] > div{
+    background: transparent !important;
+    padding: 0 !important;
+    border-radius: 8px !important;
+}
+
+div[data-testid="stSelectbox"] div[role="combobox"],
+div[data-testid="stTextInput"] input{
+    background: var(--soft) !important;
+    border: none !important;
+    border-radius: 14px !important;
+    padding: 14px 16px !important;
+    color: var(--text) !important;
+}
+
+div[data-testid="stSelectbox"] div[role="combobox"]:hover{
+    background: var(--soft-hover) !important;
+}
+div[data-testid="stTextInput"] input:hover{
+    background: var(--soft-hover) !important;
+}
+
+div[data-testid="stTextInput"] input::placeholder{
+    color: rgba(0,0,0,0.55) !important;
+}
+
+/* ✅ FAQ Expander */
+div[data-testid="stExpander"]{
+    background: var(--soft) !important;
+    border-radius: 14px !important;
+    margin: 0 0 10px 0 !important;
+    overflow: hidden;
+}
+
+/* ✅ '>' / 화살표(마커) 제거 */
+div[data-testid="stExpander"] summary svg{
+    display:none !important;
+}
+div[data-testid="stExpander"] summary::-webkit-details-marker{
+    display:none !important;
+}
+div[data-testid="stExpander"] summary::marker{
+    content:"" !important;
+}
+
+/* ✅ 제목(질문) 볼드 확실히 */
+div[data-testid="stExpander"] summary{
+    padding: 14px 16px !important;
+    font-weight: 900 !important;
+    color: var(--text) !important;
+}
+div[data-testid="stExpander"] summary *{
+    font-weight: 900 !important;
+}
+
+/* ✅ Q. 를 5~10% 더 크게 보이게 */
+div[data-testid="stExpander"] summary::first-letter{
+    font-size: 1.08em !important;
+}
+
+div[data-testid="stExpander"] summary:hover{
+    background: var(--soft-hover) !important;
+}
+div[data-testid="stExpander"] > div{
+    padding: 0 16px 14px 16px !important;
+    color: rgba(0,0,0,0.65) !important;
+}
+
+/* 카테고리 버튼 */
+.catgrid div.stButton > button{
+    height: 54px !important;
+    border-radius: 14px !important;
+    background: var(--soft) !important;
+    font-weight: 900 !important;
+    color: var(--text) !important;
+    white-space: nowrap !important;
+}
+.catgrid div.stButton > button:hover{
+    background: var(--soft-hover) !important;
+    opacity: 1 !important;
+}
+.catgrid button[data-testid="stBaseButton-primary"],
+.catgrid button[data-testid="baseButton-primary"]{
+    background: var(--primary) !important;
+    color: #fff !important;
+    opacity: 1 !important;
+}
+
+/* 페이지네이션 */
+.pager div.stButton > button{
+    height: 34px !important;
+    min-width: 34px !important;
+    padding: 0 10px !important;
+    border-radius: 12px !important;
+    background: var(--soft) !important;
+    font-weight: 800 !important;
+    color: var(--text) !important;
+}
+.pager div.stButton > button:hover{
+    background: var(--soft-hover) !important;
+    opacity: 1 !important;
+}
+.pager button[data-testid="stBaseButton-primary"],
+.pager button[data-testid="baseButton-primary"]{
+    background: var(--primary) !important;
+    color: #fff !important;
+    opacity: 1 !important;
+}
+
+/* 사이드바 메뉴 버튼 */
+.navbtn div.stButton > button{
+    width: 100% !important;
+    height: 44px !important;
+    border-radius: 14px !important;
+    background: var(--soft) !important;
+    font-weight: 900 !important;
+    color: var(--text) !important;
+    text-align: left !important;
+    padding-left: 14px !important;
+}
+.navbtn div.stButton > button:hover{
+    background: var(--soft-hover) !important;
+    opacity: 1 !important;
+}
+.navbtn button[data-testid="stBaseButton-primary"],
+.navbtn button[data-testid="baseButton-primary"]{
+    background: var(--active-red) !important;
+    color: #fff !important;
+    opacity: 1 !important;
+}
+
+/* 전기차 카드 */
+.carcard{
+    background: var(--soft);
+    border-radius: 14px;
+    padding: 10px 12px;
+}
+
+/* ✅ 이미지 높이 고정(텍스트 라인 맞추기) */
+.carimgbox{
+    height: 220px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: rgba(255,255,255,0.55);
+    border-radius: 12px;
+    overflow: hidden;
+}
+.carimgbox img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.carname{
+    font-weight: 900;
+    margin-top: 10px;
+    line-height: 1.15;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    min-height: 28px;
+}
+.evbolt{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    line-height: 1;
+    color: var(--ev-sky);
+    filter: drop-shadow(0 1px 0 rgba(255,255,255,0.4));
+}
+.carbrand{
+    color: rgba(0,0,0,0.55);
+    font-size: 13px;
+    margin-top: 2px;
+}
+.carprice{
+    color: rgba(0,0,0,0.62);
+    font-size: 13px;
+    font-weight: 800;
+    margin-top: 6px;
+}
+
+section[data-testid="stSidebar"]{
+    background: rgba(0,0,0,0.02) !important;
+}
