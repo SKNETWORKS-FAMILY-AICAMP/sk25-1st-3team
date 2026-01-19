@@ -423,8 +423,14 @@ if st.session_state.main_menu == "전국 전기차 등록 현황":
     
     st.subheader("등록 현황 표")
     st.caption(f"선택 지역: {region}")
-    st.dataframe(df_table)
- 
+    st.dataframe(
+        df_table.rename(columns={
+            "reg_year": "등록 연도",
+            "fuel_type": "연료 유형",
+            "reg_count": "등록 대수",
+        }),
+        use_container_width=True
+    ) 
 
 
 elif st.session_state.main_menu == "전국 전기차 충전소 지도":
