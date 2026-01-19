@@ -8,11 +8,11 @@ from ..config import DB_CONFIG
 from ..constants import ZCODE_TO_SHORT  # 이미 같은 매핑이 있음 :contentReference[oaicite:3]{index=3}
 
 def render():
-    st.set_page_config(
-        page_title="지역별 차량 대비 충전 인프라 현황",
-        page_icon="🔌",
-        layout="wide"
-    )
+    # st.set_page_config(
+    #     page_title="지역별 차량 대비 충전 인프라 현황",
+    #     page_icon="🔌",
+    #     layout="wide"
+    # )
 
     # =============================
     # DB 연결

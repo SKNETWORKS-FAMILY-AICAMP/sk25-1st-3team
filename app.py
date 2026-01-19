@@ -12,7 +12,11 @@ from src.pages.faq import render as render_faq
 from src.pages.ev_model import render as render_ev_model
 from src.pages import ev_ratio
 
-st.set_page_config(page_title="EV Dashboard", layout="wide")
+st.set_page_config(
+    page_title="EV Dashboard",
+    page_icon="⚡",
+    layout="wide"
+)
 
 if "page" not in st.session_state:
     st.session_state.page = 1
