@@ -1,4 +1,5 @@
 # 1. 팀 소개
+<img width="1361" height="499" alt="image" src="https://github.com/user-attachments/assets/e198febd-70c5-4516-a765-889ce60782ea" />
 
 
 # 2. 프로젝트 기간
