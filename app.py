@@ -1,3 +1,4 @@
+import os
 import math
 import re
 import json
@@ -6,6 +7,10 @@ import streamlit as st
 import MySQLdb
 import pandas as pd
 import plotly.express as px
+from dotenv import load_dotenv
+
+# Load environment variables from .env (local development)
+load_dotenv()
 
 st.set_page_config(page_title="EV Dashboard", layout="wide")
 
@@ -16,15 +21,15 @@ except FileNotFoundError:
     pass
 
 DB_CONFIG = dict(
-    host="175.196.76.209",
-    user="sk25_team3",
-    passwd="Encore7278!",
-    db="team3",
-    charset="utf8mb4",
+    host=os.getenv("DB_HOST"),
+    user=os.getenv("DB_USER"),
+    passwd=os.getenv("DB_PASSWORD"),
+    db=os.getenv("DB_NAME"),
+    charset=os.getenv("DB_CHARSET", "utf8mb4"),
 )
 
-FAQ_PAGE_SIZE = 10
-EV_PAGE_SIZE = 50
+FAQ_PAGE_SIZE = int(os.getenv("FAQ_PAGE_SIZE", 10))
+EV_PAGE_SIZE = int(os.getenv("EV_PAGE_SIZE", 50))
 
 EV_CHARGER_TABLE = "ev_charger"
 CAR_MODEL_TABLE = "car_model"
@@ -401,7 +406,6 @@ if st.session_state.main_menu == "전국 전기차 등록 현황":
     fig.update_layout(xaxis_tickangle=0, height=450)
     st.plotly_chart(fig, width="stretch")
 
-
     st.subheader("요약 지표")
     years = sorted(df_plot["reg_year"].unique().tolist())
     if years:
@@ -420,11 +424,9 @@ if st.session_state.main_menu == "전국 전기차 등록 현황":
         with c3:
             st.metric("차이(하이브리드-전기)", f"{int(diff):+,}대", delta=(f"{ratio:.1f}%" if ratio is not None else None))
 
-    
     st.subheader("등록 현황 표")
     st.caption(f"선택 지역: {region}")
     st.dataframe(df_table)
- 
 
 
 elif st.session_state.main_menu == "전국 전기차 충전소 지도":
@@ -517,7 +519,10 @@ elif st.session_state.main_menu == "전국 전기차 충전소 지도":
         if target_full and (target_full in known):
             sub_geo = {
                 "type": "FeatureCollection",
-                "features": [f for f in geojson.get("features", []) if str(f.get("properties", {}).get(name_key, "")).strip() == target_full],
+                "features": [
+                    f for f in geojson.get("features", [])
+                    if str(f.get("properties", {}).get(name_key, "")).strip() == target_full
+                ],
             }
             df_one = df_region[df_region["region_short"] == region].copy()
             if df_one.empty:
@@ -752,7 +757,10 @@ elif st.session_state.main_menu == "전기차 모델":
                     if img:
                         st.markdown(f'<div class="carimgbox"><img src="{img}" alt="car"/></div>', unsafe_allow_html=True)
                     else:
-                        st.markdown('<div class="carimgbox" style="color:rgba(0,0,0,0.45); font-weight:800;">이미지 없음</div>', unsafe_allow_html=True)
+                        st.markdown(
+                            '<div class="carimgbox" style="color:rgba(0,0,0,0.45); font-weight:800;">이미지 없음</div>',
+                            unsafe_allow_html=True,
+                        )
                     st.markdown(f'<div class="carname"><span class="evbolt">⚡</span>{name}</div>', unsafe_allow_html=True)
                     if price:
                         st.markdown(f'<div class="carprice">{price}</div>', unsafe_allow_html=True)
