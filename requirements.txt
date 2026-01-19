@@ -9,3 +9,4 @@ pyarrow
 folium
 streamlit-folium
 watchdog
+python-dotenv
