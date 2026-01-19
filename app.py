@@ -382,7 +382,6 @@ if st.session_state.main_menu == "전국 전기차 등록 현황":
 
     st.title("전국 전기/하이브리드 등록 현황")
     df_table = load_ev_register(region)
-    st.dataframe(df_table)
 
     st.markdown("### 연도별 전기 vs 하이브리드 등록 대수")
 
@@ -401,6 +400,9 @@ if st.session_state.main_menu == "전국 전기차 등록 현황":
     fig.update_traces(hovertemplate="연도=%{x}<br>등록=%{y:,}대<extra></extra>")
     fig.update_layout(xaxis_tickangle=0, height=450)
     st.plotly_chart(fig, width="stretch")
+
+    st.subheader("등록 현황 표")
+    st.dataframe(df_table)
 
     years = sorted(df_plot["reg_year"].unique().tolist())
     if years:
