@@ -485,8 +485,6 @@ elif st.session_state.main_menu == "전국 전기차 충전소 지도":
         st.error("GeoJSON의 시도명과 DB 시도명이 매칭이 안 됩니다.")
         st.stop()
 
-    st.subheader("시도별 충전소 개수")
-    st.dataframe(df_region[["region_short", "charger_count"]].sort_values("charger_count", ascending=False), width="stretch")
 
     global_min = int(df_region["charger_count"].min())
     global_max = int(df_region["charger_count"].max())
