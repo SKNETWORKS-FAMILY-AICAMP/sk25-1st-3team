@@ -401,9 +401,8 @@ if st.session_state.main_menu == "전국 전기차 등록 현황":
     fig.update_layout(xaxis_tickangle=0, height=450)
     st.plotly_chart(fig, width="stretch")
 
-    st.subheader("등록 현황 표")
-    st.dataframe(df_table)
 
+    st.subheader("요약 지표")
     years = sorted(df_plot["reg_year"].unique().tolist())
     if years:
         selected_year = st.selectbox("기준 연도 선택", years, index=len(years) - 1, key="year_select_metrics")
@@ -420,6 +419,12 @@ if st.session_state.main_menu == "전국 전기차 등록 현황":
             st.metric("하이브리드 등록 대수", f"{int(hy):,}대")
         with c3:
             st.metric("차이(하이브리드-전기)", f"{int(diff):+,}대", delta=(f"{ratio:.1f}%" if ratio is not None else None))
+
+    
+    st.subheader("등록 현황 표")
+    st.caption(f"선택 지역: {region}")
+    st.dataframe(df_table)
+ 
 
 
 elif st.session_state.main_menu == "전국 전기차 충전소 지도":
