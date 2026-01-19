@@ -94,7 +94,11 @@ def render():
         st.error("addr/zcode로 시도 매핑이 하나도 안 됐습니다.")
         st.stop()
 
-    df_region = tmp.groupby("region_short", as_index=False).size().rename(columns={"size": "charger_count"})
+    df_region = (
+        tmp.groupby("region_short", as_index=False)
+        .size()
+        .rename(columns={"size": "charger_count"})
+    )
     df_region["region_short"] = df_region["region_short"].astype(str).str.strip()
 
     geojson = load_korea_sido_geojson()
@@ -125,11 +129,7 @@ def render():
         st.error("GeoJSON의 시도명과 DB 시도명이 매칭이 안 됩니다.")
         st.stop()
 
-    st.subheader("시도별 충전소 개수")
-    st.dataframe(
-        df_region[["region_short", "charger_count"]].sort_values("charger_count", ascending=False),
-        use_container_width=True,
-    )
+    # ✅ 표 제거: (원래 있던 st.subheader / st.dataframe 블록 삭제)
 
     global_min = int(df_region["charger_count"].min())
     global_max = int(df_region["charger_count"].max())
