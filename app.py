@@ -215,6 +215,7 @@ def load_ev_register(region: str) -> pd.DataFrame:
             sum(c.reg_count) as reg_count
         from car_register c
         where c.fuel_type in ('전기', '하이브리드(휘발유+전기)')
+        and c.reg_year between 2021 and 2024
         group by c.reg_year, c.fuel_type
         order by c.reg_year, c.fuel_type
         """
@@ -228,6 +229,7 @@ def load_ev_register(region: str) -> pd.DataFrame:
         from car_register c
         where c.region = %s
           and c.fuel_type in ('전기', '하이브리드(휘발유+전기)')
+          and c.reg_year between 2021 and 2024
         group by c.reg_year, c.fuel_type
         order by c.reg_year, c.fuel_type
         """
