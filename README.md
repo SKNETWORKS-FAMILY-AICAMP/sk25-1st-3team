@@ -45,6 +45,31 @@
 ## ERD
 <img width="900" height="500" alt="ERD" src="https://github.com/user-attachments/assets/4f69a2b2-77a0-40eb-8070-52e0fa6af162" />
 
+## 파일구조
+```
+sk25-1st-3team/
+├── src/
+│   ├── pages/
+│   │   ├── ev_map.py        # 전기차 충전소 지도
+│   │   ├── ev_model.py     # 전기차 모델
+│   │   ├── ev_ratio.py     # 지역별 충전소 인프라 현황
+│   │   ├── ev_register.py  # 전기차 등록 현황
+│   │   └── faq.py          # FAQ 페이지
+│   ├── config.py           # config 목록
+│   ├── constants.py        # 리스트 목록
+│   ├── db.py               # DB 쿼리
+│   ├── ui.py               # 페이징 및 필터링 함수
+│   └── utils.py            # 공통 유틸리티 함수
+├── .env.example            # SQL 연결 예시 파일
+├── app.py                  # 메인
+├── README.md               # 프로젝트 개요 및 사용법
+├── requirements.txt        # 의존성 목록
+└── style.css               # CSS
+
+```
+
+
+
 # 4. 기술 스택
 
 - **Frontend**
