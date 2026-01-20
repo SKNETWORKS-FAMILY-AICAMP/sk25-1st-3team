@@ -42,6 +42,9 @@
 - 전기차 관련 데이터 분석 및 시각화에 관심 있는 입문자
 - 친환경 자동차 정책 및 시장 동향을 분석하는 기획자
 
+## ERD
+<img width="900" height="500" alt="ERD" src="https://github.com/user-attachments/assets/4f69a2b2-77a0-40eb-8070-52e0fa6af162" />
+
 # 4. 기술 스택
 
 - **Frontend**
