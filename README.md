@@ -58,6 +58,11 @@
   - NumPy
   - Plotly
 
+  한국환경공단_전기자동차 충전소 정보
+  https://www.data.go.kr/data/15039545/fileData.do
+  한국교통안전공단_자동차종합정보 신규등록정보 서비스
+  https://www.data.go.kr/data/15059401/openapi.do
+
 # 5. 수행결과
 - 전국 전기차/하이브리드 등록 데이터 수집 및 정제
 - 연도별 전기/하이브리드 차량 등록 현황 비교 시각화
